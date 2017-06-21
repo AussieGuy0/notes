@@ -19,7 +19,7 @@ app.directive('productGallery', function() { . . . });
 Modules should contain similar functionality. 
 
 ## Controllers
-Controllers are where the app's behaviour is by defining functions and values
+Controllers are where the app's behaviour is and is defined by functions and values
 
 ```javascript
 var app = angular.module('store', []);
@@ -51,19 +51,19 @@ HTML Annotations that trigger javascript behaviours.
 - **Attribute Directives**: Attached to an element on page. Used for mixin behaviours like tool-tips.
 
 ### Types
-- ng-app       : Attach module to page
-- ng-controller: Attach controller to page
-- ng-show      : Only show attached element if the value of expression is true (or even null)
-- ng-hide      : Literally the opposite of above
-- ng-repeat    : Loops through a list of elements
-- ng-src       : Needed to load an image from controller
-- ng-click     : Allows expression to be evaluated when element is clicked
-- ng-init      : Evaluate expression in current scope. If you have to use ng-init, probably best if it was moved into controller.
-- ng-class     : Dynamically sets CSS classes on element.  e.g `<li ng-class="{{ active: tab === 1 }}">` active will be attached to li element if tab is 1.
-- ng-model     : Binds the form element value to the property
-- ng-options   : Dynamically generates a list of `<option>` elements for attached `<select>` element.
-- ng-submit    : Allows a function to be called when form is submitted
-- ng-inclide   : Includes a template to insert into the html page. e.g `<h3 ng-include="'product-title'"></h3>`. Generally better using a custom directive than this.
+- **ng-app**       : Attach module to page
+- **ng-controller**: Attach controller to page
+- **ng-show**      : Only show attached element if the value of expression is true (or even null)
+- **ng-hide**      : Literally the opposite of above
+- **ng-repeat**    : Loops through a list of elements
+- **ng-src**       : Needed to load an image from controller
+- **ng-click**     : Allows expression to be evaluated when element is clicked
+- **ng-init**      : Evaluate expression in current scope. If you have to use ng-init, probably best if it was moved into controller.
+- **ng-class**     : Dynamically sets CSS classes on element.  e.g `<li ng-class="{{ active: tab === 1 }}">` active will be attached to li element if tab is 1.
+- **ng-model**     : Binds the form element value to the property
+- **ng-options**   : Dynamically generates a list of `<option>` elements for attached `<select>` element.
+- **ng-submit**    : Allows a function to be called when form is submitted
+- **ng-include**   : Includes a template to insert into the html page. e.g `<h3 ng-include="'product-title'"></h3>`. Generally better using a custom directive than this.
 
 
 ### Custom Element Directives
@@ -137,7 +137,9 @@ app.controller('SomeController', [ '$http', '$log', function($http, $log) {
 
 ## Additonal Resources
 [Course Source Code](https://github.com/codeschool/ShapingUpWithAngular.js)
+
 [AngularJS docs](https://docs.angularjs.org/api)
+
 [ng-newsletter](http://www.ng-newsletter.com/)
 
 ## Examples
