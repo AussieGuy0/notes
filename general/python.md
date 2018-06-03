@@ -11,6 +11,7 @@ OR
 ```python
 file = open(filename, 'w')
 file.close()
+```
 
 **Open Types**
 - 'r': File will only be read
