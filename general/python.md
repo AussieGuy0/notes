@@ -14,11 +14,11 @@ file.close()
 ```
 
 **Open Types**
-- 'r': File will only be read
-- 'w': File will be written to. If file with same name will be deleted (if exists).
-- 'a': Append mode. Any data written will be appended to the file.
-- 'r+': Combination of 'rw'
-- DEFAULT: 'r'
+- `r`: File will only be read
+- `w`: File will be written to. If file with same name will be deleted (if exists).
+- `a`: Append mode. Any data written will be appended to the file.
+- `r+`: Combination of 'rw'
+- DEFAULT: `r`
 
 ### Write to file
 ```python
