@@ -42,3 +42,12 @@ permission = Permission.objects.get(name='user_edit')
 group = MyGroup.objects.get(name='test')
 group.permissions.set([permission])
 ```
+
+## Queries
+### 'Or' query
+Use `Q` with `|` to define `or` queries.
+```python
+from django.db.models import Q
+
+Item.objects.filter(Q(creator=owner) | Q(moderated=False))
+```
