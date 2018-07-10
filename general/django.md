@@ -42,6 +42,14 @@ permission = Permission.objects.get(name='user_edit')
 group = MyGroup.objects.get(name='test')
 group.permissions.set([permission])
 ```
+### Get model that contains no many-to-many
+```python
+class User(models.Model):
+    name = models.CharField()
+    school = models.ManyToManyField('School')
+    
+User.objects.filter(school=None)
+```
 
 ## Queries
 ### 'Or' query
