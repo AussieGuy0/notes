@@ -46,9 +46,9 @@ group.permissions.set([permission])
 ```python
 class User(models.Model):
     name = models.CharField()
-    school = models.ManyToManyField('School')
+    grades = models.ManyToManyField('Grade')
     
-User.objects.filter(school=None)
+User.objects.filter(grades=None)
 ```
 
 ## Queries
