@@ -59,3 +59,8 @@ from django.db.models import Q
 
 Item.objects.filter(Q(creator=owner) | Q(moderated=False))
 ```
+
+## Refresh model from db
+```python
+    obj.refresh_from_db()
+```
