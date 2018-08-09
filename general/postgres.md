@@ -43,6 +43,9 @@ GRANT ALL ON SCHEMA public TO public;
 ### Load SQL
 `psql --username=postgres db_name < db_dump.sql`
 
+## Save query as CSV
+`Copy (Select * From foo) To '/tmp/test.csv' With CSV DELIMITER ',';`
+
 ## Potential Problems
 ### Mixed case
 If a database has a relation with a mixed case name (e.g. `downloadTypes`), you **MUST** quote it's name in queries. 
