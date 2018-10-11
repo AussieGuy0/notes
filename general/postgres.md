@@ -46,6 +46,11 @@ GRANT ALL ON SCHEMA public TO public;
 ## Save query as CSV
 `Copy (Select * From foo) To '/tmp/test.csv' With CSV DELIMITER ',';`
 
+Use `HEADER` to get column names in the csv:
+
+`Copy (Select * From foo) To '/tmp/test.csv' With CSV HEADER DELIMITER ',';`
+
+
 ## Potential Problems
 ### Mixed case
 If a database has a relation with a mixed case name (e.g. `downloadTypes`), you **MUST** quote it's name in queries. 
