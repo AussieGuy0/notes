@@ -64,3 +64,16 @@ Item.objects.filter(Q(creator=owner) | Q(moderated=False))
 ```python
     obj.refresh_from_db()
 ```
+
+## Undo migrations
+
+Migrations
+```
+0010_previous_migration
+0011_migration_to_revert
+```
+`./manage.py migrate my_app 0010_previous_migration` 
+
+### Undo all migrations
+
+`./manage.py migrate my_app zero`
