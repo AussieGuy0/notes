@@ -53,6 +53,7 @@ Best case: O(N) - When array is already sorted
 Avg Case: O(N^2)
 
 ## Merge Sort
+![](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)
 ### Description
 Efficent, recursive algorthim which produces a stable sort (order of
 equal elements the same)
