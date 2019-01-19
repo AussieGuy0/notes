@@ -1,5 +1,8 @@
 # vue
 
+## Router
+- To access `$route` in component use `this.$route`
+
 ## Proxy for development
 Change proxytable in config/index.js to something like:
 

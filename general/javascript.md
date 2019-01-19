@@ -40,3 +40,7 @@ fetch('/api/something', {
 });
 
 ```
+
+### Response API
+- `response.json()`: returns a promise that resolves as json
+- `response.text()`: returns a promise that resolves as a string
