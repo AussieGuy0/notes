@@ -2,8 +2,7 @@
 
 # Sorting
 
-## Insertion Sort
-
+## Insertion Sort 
 ![](https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif)
 
 ### Description
@@ -70,46 +69,93 @@ Avg Case: O(N log N)
 
 ## Quick Sort
 ### Description
+The quickest sorting algorithm. Uses divide-and-conquer to sort. Doesn't produce
+a stable sort.
 
 ### Algorithm
+Select a pivot from the array (traditionally, first element). Reorder array so
+that everything on left is smaller than the pivot, everything on the right is
+greater than the pivot. Recursivley apply algorithim to smaller sublist and
+greater sublist.
 
 ### Big O
 Best case: O(N log N)
-
-Avg case: O(N log n)
+Avg case: O(N log N)
 
 Worst case: O(N^2) - running on already sorted array
 
-# Search
-
 ## Binary Search
+![](https://upload.wikimedia.org/wikipedia/commons/8/83/Binary_Search_Depiction.svg)
+Finds a specific element in a already sorted array. Works by comparing the target
+element with the middle element in the array. If target element is less than
+compared element, redo the process on the first half of the array. If target
+element is more, then redo process on second half of the array. Stop when found
+element or ran out of array.
 
-## Tree
+### Big O
+Best case: O(1) - first element compared matches!
+Avg Case: O(log n)
+
+
+
+## Graph
+
+###  Breadth First Search
+![](https://upload.wikimedia.org/wikipedia/commons/3/33/Breadth-first-tree.svg)
+
+An algorithm for graph traversal. Starting at some node, visit all nodes at
+current 'depth level' before going to the next depth level.
+
+Good choice for finding the shortest distance between two nodes. Dijkstra's
+Algorithm can be considered a modified BFS.
+
+###  Depth First Search
+![](https://upload.wikimedia.org/wikipedia/commons/1/1f/Depth-first-tree.svg)
+
+An algorithm for graph traversal. Start at some node, explore down a single
+'branch' as far as possible before backtracking.
+
+Good choice for checking if graph is cyclic, and finding strongly connected
+components of a graph (where every vertex is reachable from any other vertex)
+
+### Traversals
 
 - Inorder Traversal
 - Preorder Traversal
 - Postorder Traversal
 - Kruskal's Algorithim (Minimum Spanning Tree)
 
-## Graph
 
-- Breadth First Search
-- Depth First Search
 
 # Data Structures
-
 ## List
 
-- Linked List
+### Linked List
 
-## Binary Tree
+## Trees
+A tree is a directed acyclic graph
+### Binary Tree
+A specific tree where each node has at most 2 children
 
-- Binary Search Tree
+### Binary Search Tree
+A specific binary tree where every node's left child is less than the node, and
+every node's right child is more than the node. 
+
+Has avg O(log N) search, insert, delete operations. 
+
+
+
 
 ## Stack
+Last in, first out data structure. Adding elements add it to the top of the
+stack, popping takes the top element from the stack.
+
+Useful for backtracking in graph theory. Example: Using depth first search, we
+add the nodes we're visiting to the stack. When we reach the final node of a
+branch, we pop the stack to 'backtrack' to the last branching point.
 
 ## Queue
+First in, first out data structure. Adding elements adds it to the top of the
+queue, popping an element takes the bottom element.
 
-## Graph
 
-## Tree
