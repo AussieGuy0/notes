@@ -119,12 +119,15 @@ An algorithm for graph traversal. Start at some node, explore down a single
 Good choice for checking if graph is cyclic, and finding strongly connected
 components of a graph (where every vertex is reachable from any other vertex)
 
-### Traversals
+### Kruskal's Algorithim (Minimum Spanning Tree)
+Finds mimimum spanning tree. Smalles subset of edges (based on weight) that connects every vertex in graph.
 
-- Inorder Traversal
-- Preorder Traversal
-- Postorder Traversal
-- Kruskal's Algorithim (Minimum Spanning Tree)
+
+#### Traversals
+
+- Inorder Traversal: (Left, Root, Right)
+- Preorder Traversal: (Root, Left, Right)
+- Postorder Traversal: (Left, Right, Root)
 
 
 
@@ -132,6 +135,10 @@ components of a graph (where every vertex is reachable from any other vertex)
 ## List
 
 ### Linked List
+Data structure where each element has pointer to the next element (single linked list)
+and optionally a pointer to the last element (double linked list)
+
+O(N) for accessing certain positon in list. O(1) add and remove,
 
 ## Trees
 A tree is a directed acyclic graph
