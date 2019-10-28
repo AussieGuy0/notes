@@ -43,6 +43,9 @@ GRANT ALL ON SCHEMA public TO public;
 ### Load SQL
 `psql --username=postgres db_name < db_dump.sql`
 
+## Load CSV
+`\copy exercises(name,description,main_muscle) FROM 'exercises.csv' WITH DELIMITER ',' CSV HEADER;`
+
 ## Save query as CSV
 `Copy (Select * From foo) To '/tmp/test.csv' With CSV DELIMITER ',';`
 
