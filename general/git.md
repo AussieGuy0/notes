@@ -8,3 +8,6 @@
 
 ## Edit commit message (not pushed)
 `git commit --amend`
+
+## Checkout branch from specific remote
+`git checkout -t <remote-repo>/<remote-branch>`
