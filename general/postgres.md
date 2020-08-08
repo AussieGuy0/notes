@@ -50,6 +50,32 @@ Use `HEADER` to get column names in the csv:
 
 `Copy (Select * From foo) To '/tmp/test.csv' With CSV HEADER DELIMITER ',';`
 
+## Queries
+### BETWEEN
+A keyword to look for matches between the given inclusive boundaries.
+```sql
+SELECT first_name, age
+FROM person,
+WHERE age >= 19 AND age <= 35
+```
+
+Is the same as:
+
+```sql
+SELECT first_name, age
+FROM person,
+WHERE age BETWEEN 19 AND 35
+```
+
+### IN
+A keyword to provide a list of options for a field. Often a good alternative to
+multiple or statements.
+
+```sql
+SELECT first_name, age
+FROM person
+WHERE first_name IN ("Bob, Steve, Adam")
+```
 
 ## Potential Problems
 ### Mixed case

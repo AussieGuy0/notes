@@ -1,7 +1,7 @@
 # Bash
 
 ## If Statement
-```bash
+```sh
 str="hello"
 if [[ $str == hello ]]
 then
@@ -13,11 +13,16 @@ fi
 
 
 ## Reading file line-by-line
-
-```bash
+```sh
 while read -r line                                                                    
     do
         echo "Text read from file: $line"
     done < "file.txt" # Filename
 ```
+
+## Getting script directory
+```sh
+DIR=$(dirname "$0")
+```
+
 

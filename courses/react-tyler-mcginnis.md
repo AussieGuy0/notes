@@ -102,14 +102,176 @@ ReactDOM.render(
 ```js
 // We provide a 'key' to list element to help React to know which items have
 // changed during renders
-<ul id="tweets">
-    {tweets.map((tweet) => (
-        <li key={tweet.id}> 
-            {tweet.text}
-        </li>
-    ))}
-</ul>
+
+class Tweets extends React.component {
+
+render() {
+    return (
+        <ul id="tweets">
+            {tweets.map((tweet) => (
+                <li key={tweet.id}> 
+                    {tweet.text}
+                </li>
+            ))}
+        </ul>
+    )
+}
+}
 ```
+
+## Managing State
+### This
+#### Implicit Binding
+Left of the dot at call time
+
+```js 
+const student = {
+    name: "bob",
+    sayName: function() {
+        console.log("My name is " + this.name): 
+    }
+}
+// this is Left of the dot at call time
+//
+//
+//vvv----- this
+student.sayName()
+```
+  
+#### Explicit Binding (call, apply, bind)
+```js
+const sayName = function(name) {
+    console.log('My name is ' + this.name);
+}
+
+const person = {
+    name: "bob"
+}
+
+sayName.call(person); // binds person to this in sayName and calls it
+// Same result as
+const newFn = sayName.bind(person) // creates a new function with person binded as this
+newFn();
+```
+
+#### new Binding
+```js
+const Animal = function(color) {
+    //this = {};
+    this.color = color;
+}
+```
+
+#### window Binding
+```js
+const sayAge = function() {
+    console.log(this.age);
+}
+sayAge() // undefined
+window.age = 1
+sayAge() // 1
+
+```
+
+### State
+
+We add state to the componet by using `this.state` e.g:
+```js
+class Hello extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      name: 'Tyler'
+    }
+  }
+  render() {
+    return (
+      <h1>Hello, {this.state.name}</h1>
+    )
+  }
+}
+```
+
+To change the state, we use the `this.setState` method:
+
+```js
+
+updateName(newName) {
+    this.setState({
+        name: newName 
+    })
+}
+```
+
+As a note, the object will be merged with the current state. It doesn't replace
+it!
+
+If we need to use an existing value from our current state to determine the
+state update, we can use the function variant of `setState`:
+
+```js
+addFriend(friend) {
+    this.setState((state) => {
+        return {
+            friends: state.friends.concat(friend)
+        }
+    })
+}
+```
+
+## Functional Components
+If there is a component that just needs to render something based on props, we
+can use a *functional component*. 
+
+```js
+function Header(props) {
+    return (
+        <h1>{props.title}</h1> 
+    )
+}
+```
+
+## PropTypes
+Proptypes allow basic typechecking on props
+```js
+import React from 'react'
+import PropTypes from 'prop-types'
+
+export default function Hello ({ name }) {
+  return <h1>Hello, {name}</h1>
+}
+
+Hello.propTypes = {
+  name: PropTypes.string.isRequired // Ensures props has name property of type string
+}
+
+```
+
+## Component Lifecycle
+- Main lifecycle:
+  1. When the component is added to DOM (mounting)
+  2. When component updates its state or receives new data via props (updating)
+  3. When the component gets removed from the dom (unmounting)
+
+- constructor (initial state)
+- render (Re-runs whenever state changes)
+- componentDidMount 
+    - runs once when first mounted to DOM
+    - Good for making AJAX requests
+- componentDidUpdate 
+    - Runs when component local state changes or recieves new props
+    - Good for AJAX requests on changed state
+- componentWillUnmount 
+    - Runs just before component is removed from DOM
+    - Good for cleanup operations
+
+## Handling Form State
+- React: State lives inside component
+- Forms: State lives in DOM
+
+- In JSX: className is class, htmlFor is for.
+
   
 ## Meta Course Notes
 - I really like his focus of slow, fundamentals-first focus on learning. I feel
