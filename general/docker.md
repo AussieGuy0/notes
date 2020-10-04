@@ -27,6 +27,53 @@ FROM ubuntu:20.04
 A base image is an image that sets it's `from` directive to `scratch`. Often
 these are OS or language images such as `ubuntu` and `python`.
 
+### Dockerfile
+
+
+```docker
+FROM node:14-alpine
+
+WORKDIR /usr/src/app
+
+# We copy the package.json first to utilise docker layer caching
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+# What port the web app is listening on. The -p or -P command still has to be
+# given when starting the container to publish the ports.
+EXPOSE 4000
+
+CMD ["npm", "start"]
+```
+
+#### A note about layers
+A docker image is built up from a series of layers. Each instruction in a
+Dockerfile produces a new layer. Each layer contains only the set a of
+differences from the layer before it. It is important to note that the image
+layers are read only!
+
+When a container is created from an image, it adds a new writable layer on top
+of the underlying image layers. This layer is referred to as the container
+layer. Changes made during the running of the container affects only this
+container layer.
+
+As image layers are immutable, a single docker image can be shared across
+multiple containers.
+
+**Layer caching** occurs when docker can determine that a instruction does not
+need to run, as a previous build has cached the layer. For instance, the `COPY`
+instructions will not run if the external files being copied into the image have not
+changed (via checksum). 
+
+If **any** of the external files have changed, then the `COPY` instruction **and**
+all subsequent instructions will be run.
+
+It is useful to copy important, less changed files early on in the Dockerfile.
+For instance, copying the `package.json` file and running `npm install` before
+anything else means that Docker will be able to cache dependencies forever, as
+long as the `package.json` file does not change.
+
 ## Commands
 ### Pull
 Pulls an image from a registry and saves it to the system.
@@ -45,6 +92,18 @@ via providing the following arguments: `-it` (or `--interactive --tty`) and
 running the `sh` command. Example:
 
 `docker run -it busybox sh`
+
+We can expose the ports in a container (defined in a `Dockerfile`s `EXPOSE`) by
+passing the -p or -P command. The lowercase -p allows explicit mapping of a
+container's port to the host's port. For instance:
+
+`docker run -p 8888:5000 web-app`
+
+Exposes the container port 5000 to the host's port 8888.
+
+The uppercase `-P` will expose all container ports (as defined by the
+`EXPOSE` instructions in the `Dockerfile`) to random available ports on the
+host.
 
 ### Container
 (All commands are prefixed with `docker container`)
@@ -65,3 +124,7 @@ http://localhost:32722.
 ## Links
 - https://docs.docker.com/
 - https://docker-curriculum.com/
+
+## TODO
+- Learn about volumes https://docs.docker.com/storage/volumes/
+- Understand docker networking https://docs.docker.com/network/
